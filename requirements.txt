@@ -1,0 +1,5 @@
+# XSD to JSON Schema conversion tools
+xmlschema>=3.0.0
+lxml>=5.0.0
+jsonschema>=4.0.0  # For validating resulting JSON schemas
+elementpath>=4.0.0  # XPath selector for xmlschema

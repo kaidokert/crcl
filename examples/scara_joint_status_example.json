@@ -1,0 +1,28 @@
+{
+  "JointStatuses": {
+    "Name": "SCARA_Robot_Joint_Status",
+    "JointStatus": [
+      {
+        "Name": "Base_Rotation_Joint",
+        "JointNumber": 1,
+        "JointPosition": 45.5,
+        "JointTorqueOrForce": 12.3,
+        "JointVelocity": 15.0
+      },
+      {
+        "Name": "Shoulder_Joint",
+        "JointNumber": 2,
+        "JointPosition": 30.25,
+        "JointTorqueOrForce": 8.7,
+        "JointVelocity": 10.5
+      },
+      {
+        "Name": "Z_Axis_Prismatic_Joint",
+        "JointNumber": 3,
+        "JointPosition": 150.0,
+        "JointTorqueOrForce": 5.2,
+        "JointVelocity": 25.0
+      }
+    ]
+  }
+}
