@@ -9,6 +9,44 @@ The primay CRCL Java tools can be found here:  [nist/crcl](https://github.com/us
 
 There is an another CRCL example repository found [<u>here</u>](https://github.com/usnistgov/crcl2ros) that contains a ROS workspace to handle CRCL streaming, CRCL to ROS conversion, and ROS to Gazebo simulation. This repository contains C++ code that implements CRCL XML streaming and parsing component, that maps command and status motion primitives from CRCL to ROS, then uses ROS moveit! to plan motion trajectories that are then simulated in Gazebo. Of note, the CRCL is parsed and serialized with XSD tools from Code Synthesis.
 
+## Rust Implementation
+
+This repository also includes a Rust implementation of CRCL:
+
+### Workspace Structure
+
+- **`crcl/`** - Library crate providing strongly-typed Rust structures for CRCL messages
+- **`xsd_gen/`** - Code generator that converts CRCL XSD schemas into Rust types
+
+### Quick Example
+
+```rust
+use crcl::{JointStatusType, JointStatusesType};
+
+let joint = JointStatusType {
+    name: None,
+    joint_number: 0,
+    joint_position: Some(1.57),
+    joint_torque_or_force: Some(10.5),
+    joint_velocity: Some(0.5),
+};
+
+// Serialize to XML
+let xml = serde_xml_rs::to_string(&joint)?;
+```
+
+### Building
+
+```bash
+cargo build        # Build the workspace
+cargo test         # Run all tests
+```
+
+### Documentation
+
+- [crcl/README.md](crcl/README.md) - Library usage and examples
+- [xsd_gen/README.md](xsd_gen/README.md) - Code generator documentation
+
 
 
 

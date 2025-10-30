@@ -2,6 +2,8 @@ use xsd_parser::{Config, config::Schema, generate};
 use std::fs;
 use std::path::PathBuf;
 
+mod flatten_types;
+
 fn main() {
     println!("=== Attempting to generate CRCL types with schema includes ===\n");
 
@@ -24,7 +26,8 @@ fn main() {
     let merged = merge_xsd_schemas(&commands, &data_primitives);
 
     let config = Config::default()
-        .with_schema(Schema::schema(merged));
+        .with_schema(Schema::schema(merged))
+        .with_derive(vec!["Debug", "Serialize", "Deserialize"]);
 
     match generate(config) {
         Ok(module) => {
@@ -42,9 +45,20 @@ fn main() {
                 .replace(" pub type ", "\npub type ")
                 .replace(" ; ", ";\n");
 
-            fs::write("generated_crcl_commands_merged.rs", &formatted)
+            // Flatten Type/TypeContent pairs
+            let flattened = flatten_types::flatten_generated_code(&formatted);
+
+            // Add serde imports at the top
+            let with_imports = format!("use serde::{{Serialize, Deserialize}};\n\n{}", flattened);
+
+            let output_path = PathBuf::from("..").join("crcl").join("src").join("commands.rs");
+            fs::write(&output_path, &with_imports)
                 .expect("Failed to write output");
-            println!("✓ Saved to generated_crcl_commands_merged.rs\n");
+            println!("✓ Saved to {}", output_path.display());
+            println!("✓ Flattened Type/TypeContent pairs for cleaner API");
+
+            // Format with rustfmt
+            format_file(output_path.to_str().unwrap());
         }
         Err(e) => {
             eprintln!("✗ Error: {}\n", e);
@@ -60,7 +74,8 @@ fn main() {
     let merged_status = merge_xsd_schemas(&status, &data_primitives);
 
     let config = Config::default()
-        .with_schema(Schema::schema(merged_status));
+        .with_schema(Schema::schema(merged_status))
+        .with_derive(vec!["Debug", "Serialize", "Deserialize"]);
 
     match generate(config) {
         Ok(module) => {
@@ -78,9 +93,20 @@ fn main() {
                 .replace(" pub type ", "\npub type ")
                 .replace(" ; ", ";\n");
 
-            fs::write("generated_crcl_status_merged.rs", &formatted)
+            // Flatten Type/TypeContent pairs
+            let flattened = flatten_types::flatten_generated_code(&formatted);
+
+            // Add serde imports at the top
+            let with_imports = format!("use serde::{{Serialize, Deserialize}};\n\n{}", flattened);
+
+            let output_path = PathBuf::from("..").join("crcl").join("src").join("status.rs");
+            fs::write(&output_path, &with_imports)
                 .expect("Failed to write output");
-            println!("✓ Saved to generated_crcl_status_merged.rs\n");
+            println!("✓ Saved to {}", output_path.display());
+            println!("✓ Flattened Type/TypeContent pairs for cleaner API");
+
+            // Format with rustfmt
+            format_file(output_path.to_str().unwrap());
         }
         Err(e) => {
             eprintln!("✗ Error: {}\n", e);
@@ -120,4 +146,29 @@ fn extract_schema_body(xsd: &str) -> String {
         }
     }
     xsd.to_string()
+}
+
+fn format_file(file_path: &str) {
+    use std::process::Command;
+
+    print!("✓ Formatting with rustfmt... ");
+    match Command::new("rustfmt")
+        .arg(file_path)
+        .output()
+    {
+        Ok(output) => {
+            if output.status.success() {
+                println!("done");
+            } else {
+                println!("warning: rustfmt had issues");
+                if !output.stderr.is_empty() {
+                    eprintln!("  {}", String::from_utf8_lossy(&output.stderr));
+                }
+            }
+        }
+        Err(e) => {
+            println!("warning: couldn't run rustfmt ({})", e);
+            println!("  The code is valid but not formatted. Install rustfmt with: rustup component add rustfmt");
+        }
+    }
 }

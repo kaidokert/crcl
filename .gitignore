@@ -27,3 +27,5 @@ xml_parser_generator/gtest/
 xsd_gen/target/
 xsd_gen/test_generated/target/
 target/
+.claude/
+Cargo.lock
