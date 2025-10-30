@@ -1,0 +1,16 @@
+[package]
+name = "xsd_gen"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "gen_data_primitives"
+path = "src/main.rs"
+
+[[bin]]
+name = "gen_crcl_types"
+path = "src/gen_crcl_types.rs"
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+xsd-parser = "1.3.0"
