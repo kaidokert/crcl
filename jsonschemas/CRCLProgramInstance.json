@@ -1,0 +1,1127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/CRCLProgramInstance.json",
+  "title": "CRCLProgramInstance",
+  "description": "JSON Schema converted from CRCLProgramInstance.xsd",
+  "type": "object",
+  "definitions": {
+    "DataThingType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104aab880>"
+    },
+    "CRCLProgramType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "InitCanon": {
+          "type": "string"
+        },
+        "MiddleCommand": {
+          "type": "string"
+        },
+        "EndCanon": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "InitCanon",
+        "EndCanon"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x10493e160>"
+    },
+    "CRCLCommandType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af4b30>"
+    },
+    "MiddleCommandType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af6200>"
+    },
+    "ActuateJointsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ActuateJoint": {
+          "type": "integer"
+        },
+        "JointTolerances": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CommandID",
+        "ActuateJoint"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104aa8900>"
+    },
+    "ActuateJointType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "JointNumber": {},
+        "JointPosition": {},
+        "JointDetails": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "JointNumber",
+        "JointPosition",
+        "JointDetails"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104aabbf0>"
+    },
+    "CloseToolChangerType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104aabfb0>"
+    },
+    "ConfigureJointReportsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ResetAll": {},
+        "ConfigureJointReport": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CommandID",
+        "ResetAll"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af4220>"
+    },
+    "ConfigureJointReportType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "JointNumber": {},
+        "ReportPosition": {},
+        "ReportTorqueOrForce": {},
+        "ReportVelocity": {}
+      },
+      "required": [
+        "JointNumber",
+        "ReportPosition",
+        "ReportTorqueOrForce",
+        "ReportVelocity"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af46d0>"
+    },
+    "DwellType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "DwellTime": {}
+      },
+      "required": [
+        "CommandID",
+        "DwellTime"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af4e00>"
+    },
+    "EndCanonType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af50d0>"
+    },
+    "GetStatusType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af52b0>"
+    },
+    "InitCanonType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af5490>"
+    },
+    "JointDetailsType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af5670>"
+    },
+    "JointForceTorqueType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {},
+        "ChangeRate": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af58a0>"
+    },
+    "JointSpeedAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "JointSpeed": {},
+        "JointAccel": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af5bc0>"
+    },
+    "MessageType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "Message": {}
+      },
+      "required": [
+        "CommandID",
+        "Message"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af5ee0>"
+    },
+    "MoveScrewType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "StartPosition": {
+          "type": "string"
+        },
+        "AxisPoint": {
+          "type": "integer"
+        },
+        "AxialDistanceFree": {},
+        "AxialDistanceScrew": {},
+        "Turn": {}
+      },
+      "required": [
+        "CommandID",
+        "AxialDistanceScrew",
+        "Turn"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af6430>"
+    },
+    "MoveThroughToType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "MoveStraight": {},
+        "Waypoint": {
+          "type": "string"
+        },
+        "NumPositions": {}
+      },
+      "required": [
+        "CommandID",
+        "MoveStraight",
+        "Waypoint",
+        "NumPositions"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af68e0>"
+    },
+    "MoveToType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "MoveStraight": {},
+        "EndPosition": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "MoveStraight",
+        "EndPosition"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af6cf0>"
+    },
+    "OpenToolChangerType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7060>"
+    },
+    "RunProgramType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ProgramText": {}
+      },
+      "required": [
+        "CommandID",
+        "ProgramText"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7240>"
+    },
+    "SetAngleUnitsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "UnitName": {}
+      },
+      "required": [
+        "CommandID",
+        "UnitName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7560>"
+    },
+    "SetEndEffectorParametersType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ParameterSetting": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "ParameterSetting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7880>"
+    },
+    "SetEndEffectorType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "Setting": {}
+      },
+      "required": [
+        "CommandID",
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7b50>"
+    },
+    "SetEndPoseToleranceType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "Tolerance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "Tolerance"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104af7e70>"
+    },
+    "SetDefaultJointPositonsTolerancesType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "JointTolerances": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CommandID",
+        "JointTolerances"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b00220>"
+    },
+    "SetForceUnitsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "UnitName": {}
+      },
+      "required": [
+        "CommandID",
+        "UnitName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b00590>"
+    },
+    "SetIntermediatePoseToleranceType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "Tolerance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "Tolerance"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b008b0>"
+    },
+    "SetLengthUnitsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "UnitName": {}
+      },
+      "required": [
+        "CommandID",
+        "UnitName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b00bd0>"
+    },
+    "SetMotionCoordinationType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "Coordinated": {}
+      },
+      "required": [
+        "CommandID",
+        "Coordinated"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b00f40>"
+    },
+    "SetRobotParametersType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ParameterSetting": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "ParameterSetting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b01210>"
+    },
+    "SetRotAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "RotAccel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "RotAccel"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b014e0>"
+    },
+    "SetRotSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "RotSpeed": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "RotSpeed"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b01850>"
+    },
+    "SetTorqueUnitsType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "UnitName": {}
+      },
+      "required": [
+        "CommandID",
+        "UnitName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b01b70>"
+    },
+    "SetTransAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "TransAccel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "TransAccel"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b01e40>"
+    },
+    "SetTransSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "TransSpeed": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "TransSpeed"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b021b0>"
+    },
+    "StopConditionEnumType": {
+      "type": "string",
+      "enum": [
+        "Immediate",
+        "Fast",
+        "Normal"
+      ]
+    },
+    "StopMotionType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "StopCondition": {}
+      },
+      "required": [
+        "CommandID",
+        "StopCondition"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b02890>"
+    },
+    "ConfigureStatusReportType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "ReportJointStatuses": {},
+        "ReportPoseStatus": {},
+        "ReportGripperStatus": {},
+        "ReportSettingsStatus": {},
+        "ReportSensorsStatus": {},
+        "ReportGuardsStatus": {}
+      },
+      "required": [
+        "CommandID",
+        "ReportJointStatuses",
+        "ReportPoseStatus",
+        "ReportGripperStatus",
+        "ReportSettingsStatus",
+        "ReportSensorsStatus",
+        "ReportGuardsStatus"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b02c00>"
+    },
+    "EnableSensorType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "SensorID": {},
+        "SensorOption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "SensorID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b031f0>"
+    },
+    "DisableSensorType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "SensorID": {}
+      },
+      "required": [
+        "CommandID",
+        "SensorID"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b03510>"
+    },
+    "EnableGripperType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "GripperName": {},
+        "GripperOption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CommandID",
+        "GripperName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b037e0>"
+    },
+    "DisableGripperType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "GripperName": {}
+      },
+      "required": [
+        "CommandID",
+        "GripperName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b03b00>"
+    },
+    "EnableRobotParameterStatusType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "RobotParameterName": {}
+      },
+      "required": [
+        "CommandID",
+        "RobotParameterName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b03e20>"
+    },
+    "DisableRobotParameterStatusType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "CommandID": {},
+        "Guard": {
+          "type": "string"
+        },
+        "RobotParameterName": {}
+      },
+      "required": [
+        "CommandID",
+        "RobotParameterName"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b14130>"
+    },
+    "AngleUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "degree",
+        "radian"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "JointPositionToleranceSettingType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "JointNumber": {},
+        "JointPositionTolerance": {}
+      },
+      "required": [
+        "JointNumber",
+        "JointPositionTolerance"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104a38ef0>"
+    },
+    "JointPositionsTolerancesType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104a6d120>"
+    },
+    "ForceUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "newton",
+        "pound",
+        "ounce"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "FractionType": {
+      "type": "number",
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ec9a0>",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "LengthUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "meter",
+        "millimeter",
+        "inch"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "PointType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "X": {},
+        "Y": {},
+        "Z": {}
+      },
+      "required": [
+        "X",
+        "Y",
+        "Z"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b14c70>"
+    },
+    "PoseType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Point": {
+          "type": "integer"
+        },
+        "XAxis": {
+          "type": "string"
+        },
+        "ZAxis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Point",
+        "XAxis",
+        "ZAxis"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b150d0>"
+    },
+    "PoseAndSetType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Point": {
+          "type": "integer"
+        },
+        "XAxis": {
+          "type": "string"
+        },
+        "ZAxis": {
+          "type": "string"
+        },
+        "Coordinated": {},
+        "TransSpeed": {
+          "type": "string"
+        },
+        "RotSpeed": {
+          "type": "string"
+        },
+        "TransAccel": {
+          "type": "string"
+        },
+        "RotAccel": {
+          "type": "string"
+        },
+        "Tolerance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Point",
+        "XAxis",
+        "ZAxis",
+        "Coordinated"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b14b80>"
+    },
+    "PositiveDecimalType": {
+      "type": "number",
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ec9a0>",
+      "minimum": 0.0
+    },
+    "TorqueUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "newtonMeter",
+        "footPound"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "TwistType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "LinearVelocity": {
+          "type": "string"
+        },
+        "AngularVelocity": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "LinearVelocity",
+        "AngularVelocity"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b16430>"
+    },
+    "VectorType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "I": {},
+        "J": {},
+        "K": {}
+      },
+      "required": [
+        "I",
+        "J",
+        "K"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b167a0>"
+    },
+    "WrenchType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Force": {
+          "type": "string"
+        },
+        "Moment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Force",
+        "Moment"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b16a70>"
+    },
+    "PoseToleranceType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "XPointTolerance": {},
+        "YPointTolerance": {},
+        "ZPointTolerance": {},
+        "XAxisTolerance": {},
+        "ZAxisTolerance": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b16d40>"
+    },
+    "ParameterSettingType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "ParameterName": {},
+        "ParameterValue": {}
+      },
+      "required": [
+        "ParameterName",
+        "ParameterValue"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b170b0>"
+    },
+    "RotAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b17970>"
+    },
+    "RotAccelAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b17420>"
+    },
+    "RotAccelRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b176f0>"
+    },
+    "RotSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b50180>"
+    },
+    "RotSpeedAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b17bf0>"
+    },
+    "RotSpeedRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b17ec0>"
+    },
+    "TransAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b509a0>"
+    },
+    "TransAccelAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b50400>"
+    },
+    "TransAccelRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b506d0>"
+    },
+    "TransSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b51120>"
+    },
+    "TransSpeedAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b50bd0>"
+    },
+    "TransSpeedRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b50ea0>"
+    },
+    "GuardLimitEnumType": {
+      "type": "string",
+      "enum": [
+        "OVER_MAX",
+        "UNDER_MIN",
+        "INCREASE_OVER_LIMIT",
+        "DECREASE_BEYOND_LIMIT"
+      ]
+    },
+    "GuardType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "SensorID": {},
+        "SubField": {},
+        "LimitType": {},
+        "LimitValue": {},
+        "RecheckTimeMicroSeconds": {},
+        "CheckCount": {},
+        "LastCheckTime": {},
+        "LastCheckValue": {}
+      },
+      "required": [
+        "SensorID",
+        "LimitType",
+        "LimitValue"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104b516c0>"
+    }
+  },
+  "properties": {
+    "CRCLProgram": {
+      "$ref": "#/definitions/CRCLProgramType"
+    }
+  }
+}

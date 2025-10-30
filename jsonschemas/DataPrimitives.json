@@ -1,0 +1,377 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/DataPrimitives.json",
+  "title": "DataPrimitives",
+  "description": "JSON Schema converted from DataPrimitives.xsd",
+  "type": "string",
+  "definitions": {
+    "DataThingType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c11c10>"
+    },
+    "JointPositionToleranceSettingType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "JointNumber": {},
+        "JointPositionTolerance": {}
+      },
+      "required": [
+        "JointNumber",
+        "JointPositionTolerance"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c11ee0>"
+    },
+    "JointPositionsTolerancesType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c12340>"
+    },
+    "ForceUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "newton",
+        "pound",
+        "ounce"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "FractionType": {
+      "type": "number",
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ec9a0>",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "LengthUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "meter",
+        "millimeter",
+        "inch"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "PointType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "X": {},
+        "Y": {},
+        "Z": {}
+      },
+      "required": [
+        "X",
+        "Y",
+        "Z"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c12de0>"
+    },
+    "PoseType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Point": {
+          "type": "integer"
+        },
+        "XAxis": {
+          "type": "string"
+        },
+        "ZAxis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Point",
+        "XAxis",
+        "ZAxis"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c130b0>"
+    },
+    "PoseAndSetType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Point": {
+          "type": "integer"
+        },
+        "XAxis": {
+          "type": "string"
+        },
+        "ZAxis": {
+          "type": "string"
+        },
+        "Coordinated": {},
+        "TransSpeed": {
+          "type": "string"
+        },
+        "RotSpeed": {
+          "type": "string"
+        },
+        "TransAccel": {
+          "type": "string"
+        },
+        "RotAccel": {
+          "type": "string"
+        },
+        "Tolerance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Point",
+        "XAxis",
+        "ZAxis",
+        "Coordinated"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c133d0>"
+    },
+    "PositiveDecimalType": {
+      "type": "number",
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ec9a0>",
+      "minimum": 0.0
+    },
+    "TorqueUnitEnumType": {
+      "type": "string",
+      "enum": [
+        "newtonMeter",
+        "footPound"
+      ],
+      "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+    },
+    "TwistType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "LinearVelocity": {
+          "type": "string"
+        },
+        "AngularVelocity": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "LinearVelocity",
+        "AngularVelocity"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c13d80>"
+    },
+    "VectorType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "I": {},
+        "J": {},
+        "K": {}
+      },
+      "required": [
+        "I",
+        "J",
+        "K"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c60130>"
+    },
+    "WrenchType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Force": {
+          "type": "string"
+        },
+        "Moment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Force",
+        "Moment"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c60400>"
+    },
+    "PoseToleranceType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "XPointTolerance": {},
+        "YPointTolerance": {},
+        "ZPointTolerance": {},
+        "XAxisTolerance": {},
+        "ZAxisTolerance": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c606d0>"
+    },
+    "ParameterSettingType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "ParameterName": {},
+        "ParameterValue": {}
+      },
+      "required": [
+        "ParameterName",
+        "ParameterValue"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c60a40>"
+    },
+    "RotAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61300>"
+    },
+    "RotAccelAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c60db0>"
+    },
+    "RotAccelRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61080>"
+    },
+    "RotSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61ad0>"
+    },
+    "RotSpeedAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61580>"
+    },
+    "RotSpeedRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61850>"
+    },
+    "TransAccelType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c622f0>"
+    },
+    "TransAccelAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c61d50>"
+    },
+    "TransAccelRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c62020>"
+    },
+    "TransSpeedType": {
+      "type": "object",
+      "properties": {
+        "Name": {}
+      },
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c62a70>"
+    },
+    "TransSpeedAbsoluteType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Setting": {}
+      },
+      "required": [
+        "Setting"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c62520>"
+    },
+    "TransSpeedRelativeType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "Fraction": {}
+      },
+      "required": [
+        "Fraction"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c627f0>"
+    },
+    "GuardLimitEnumType": {
+      "type": "string",
+      "enum": [
+        "OVER_MAX",
+        "UNDER_MIN",
+        "INCREASE_OVER_LIMIT",
+        "DECREASE_BEYOND_LIMIT"
+      ]
+    },
+    "GuardType": {
+      "type": "object",
+      "properties": {
+        "Name": {},
+        "SensorID": {},
+        "SubField": {},
+        "LimitType": {},
+        "LimitValue": {},
+        "RecheckTimeMicroSeconds": {},
+        "CheckCount": {},
+        "LastCheckTime": {},
+        "LastCheckValue": {}
+      },
+      "required": [
+        "SensorID",
+        "LimitType",
+        "LimitValue"
+      ],
+      "description": "<Element '{http://www.w3.org/2001/XMLSchema}documentation' at 0x104c63010>"
+    }
+  },
+  "enum": [
+    "degree",
+    "radian"
+  ],
+  "pattern": "<Element '{http://www.w3.org/2001/XMLSchema}pattern' at 0x1035ecb30>"
+}

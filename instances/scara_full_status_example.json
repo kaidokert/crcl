@@ -1,0 +1,206 @@
+{
+  "CRCLStatus": {
+    "Name": "SCARA_Robot_Status_Report",
+    "CommandID": 12345,
+    "StatusID": 67890,
+    "CommandState": "CRCL_Working",
+    "JointStatuses": {
+      "Name": "SCARA_Joint_Configuration",
+      "JointStatus": [
+        {
+          "Name": "J1_Base_Rotation",
+          "JointNumber": 1,
+          "JointPosition": 45.5,
+          "JointTorqueOrForce": 12.3,
+          "JointVelocity": 15.0
+        },
+        {
+          "Name": "J2_Shoulder_Rotation",
+          "JointNumber": 2,
+          "JointPosition": 30.25,
+          "JointTorqueOrForce": 8.7,
+          "JointVelocity": 10.5
+        },
+        {
+          "Name": "J3_Z_Axis_Linear",
+          "JointNumber": 3,
+          "JointPosition": 150.0,
+          "JointTorqueOrForce": 5.2,
+          "JointVelocity": 25.0
+        },
+        {
+          "Name": "J4_Wrist_Rotation",
+          "JointNumber": 4,
+          "JointPosition": 90.0,
+          "JointTorqueOrForce": 2.1,
+          "JointVelocity": 45.0
+        }
+      ]
+    },
+    "PoseStatus": {
+      "Name": "Current_End_Effector_Pose",
+      "Pose": {
+        "Name": "Tool_Center_Point",
+        "Point": {
+          "Name": "TCP_Position",
+          "X": 450.25,
+          "Y": 325.50,
+          "Z": 150.00
+        },
+        "XAxis": {
+          "Name": "X_Orientation",
+          "I": 0.866025,
+          "J": 0.5,
+          "K": 0.0
+        },
+        "ZAxis": {
+          "Name": "Z_Orientation",
+          "I": 0.0,
+          "J": 0.0,
+          "K": 1.0
+        }
+      },
+      "Twist": {
+        "Name": "Velocity_State",
+        "LinearVelocity": {
+          "Name": "Linear_Speed",
+          "I": 100.0,
+          "J": 50.0,
+          "K": -25.0
+        },
+        "AngularVelocity": {
+          "Name": "Angular_Speed",
+          "I": 0.0,
+          "J": 0.0,
+          "K": 0.5236
+        }
+      },
+      "Wrench": {
+        "Name": "Force_Torque_State",
+        "Force": {
+          "Name": "Applied_Force",
+          "I": 10.0,
+          "J": 5.0,
+          "K": -20.0
+        },
+        "Moment": {
+          "Name": "Applied_Torque",
+          "I": 2.0,
+          "J": 1.5,
+          "K": 0.5
+        }
+      },
+      "Configuration": {
+        "Name": "Robot_Configuration_Flags",
+        "Turns": 0,
+        "NonflyElbow": true,
+        "StraightWrist": false,
+        "Description": "SCARA in standard configuration"
+      }
+    },
+    "GripperStatus": {
+      "Name": "Parallel_Gripper_Status",
+      "GripperState": "Open",
+      "ParallelGripperStatus": {
+        "Name": "Two_Finger_Gripper",
+        "Separation": 50.0,
+        "GrippingForce": 0.0
+      }
+    },
+    "SettingsStatus": {
+      "Name": "Current_Robot_Settings",
+      "JointPositionsTolerances": {
+        "Name": "Joint_Position_Tolerances",
+        "Setting": [
+          {
+            "Name": "J1_Tolerance",
+            "JointNumber": 1,
+            "JointPositionTolerance": 0.01
+          },
+          {
+            "Name": "J2_Tolerance",
+            "JointNumber": 2,
+            "JointPositionTolerance": 0.01
+          },
+          {
+            "Name": "J3_Tolerance",
+            "JointNumber": 3,
+            "JointPositionTolerance": 0.1
+          },
+          {
+            "Name": "J4_Tolerance",
+            "JointNumber": 4,
+            "JointPositionTolerance": 0.05
+          }
+        ]
+      },
+      "JointVelocities": {
+        "Name": "Joint_Velocity_Settings",
+        "Setting": [
+          {
+            "Name": "J1_Velocity_Setting",
+            "JointNumber": 1,
+            "JointVelocity": 60.0
+          },
+          {
+            "Name": "J2_Velocity_Setting",
+            "JointNumber": 2,
+            "JointVelocity": 60.0
+          },
+          {
+            "Name": "J3_Velocity_Setting",
+            "JointNumber": 3,
+            "JointVelocity": 100.0
+          },
+          {
+            "Name": "J4_Velocity_Setting",
+            "JointNumber": 4,
+            "JointVelocity": 180.0
+          }
+        ]
+      },
+      "JointAccelerations": {
+        "Name": "Joint_Acceleration_Settings",
+        "Setting": [
+          {
+            "Name": "J1_Acceleration_Setting",
+            "JointNumber": 1,
+            "JointAcceleration": 120.0
+          },
+          {
+            "Name": "J2_Acceleration_Setting",
+            "JointNumber": 2,
+            "JointAcceleration": 120.0
+          },
+          {
+            "Name": "J3_Acceleration_Setting",
+            "JointNumber": 3,
+            "JointAcceleration": 500.0
+          },
+          {
+            "Name": "J4_Acceleration_Setting",
+            "JointNumber": 4,
+            "JointAcceleration": 360.0
+          }
+        ]
+      },
+      "AngleUnitName": "degree",
+      "ForceUnitName": "newton",
+      "LengthUnitName": "millimeter",
+      "TorqueUnitName": "newtonMeter",
+      "LinearUnits": "millimeter",
+      "AngularUnits": "degree",
+      "SpeedSettings": {
+        "Name": "Speed_Configuration",
+        "TransSpeed": {
+          "Name": "Translation_Speed",
+          "Fraction": 0.75
+        },
+        "RotSpeed": {
+          "Name": "Rotation_Speed",
+          "Fraction": 0.8
+        }
+      }
+    }
+  }
+}

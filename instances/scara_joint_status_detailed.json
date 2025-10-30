@@ -1,0 +1,63 @@
+{
+  "JointStatuses": {
+    "Name": "SCARA_Robot_Joint_Status_Detailed",
+    "JointStatus": [
+      {
+        "Name": "J1_Base_Theta1",
+        "JointNumber": 1,
+        "JointPosition": 45.5,
+        "JointTorqueOrForce": 12.3,
+        "JointVelocity": 15.0,
+        "_comment": "Base rotation joint (theta1) - Range: -180 to +180 degrees"
+      },
+      {
+        "Name": "J2_Elbow_Theta2",
+        "JointNumber": 2,
+        "JointPosition": 30.25,
+        "JointTorqueOrForce": 8.7,
+        "JointVelocity": 10.5,
+        "_comment": "Elbow/shoulder joint (theta2) - Range: -145 to +145 degrees"
+      },
+      {
+        "Name": "J3_Z_Axis_Translation",
+        "JointNumber": 3,
+        "JointPosition": 150.0,
+        "JointTorqueOrForce": 5.2,
+        "JointVelocity": 25.0,
+        "_comment": "Z-axis prismatic joint (d3) - Range: 0 to 300 mm stroke"
+      },
+      {
+        "Name": "J4_Wrist_Theta4",
+        "JointNumber": 4,
+        "JointPosition": 90.0,
+        "JointTorqueOrForce": 2.1,
+        "JointVelocity": 45.0,
+        "_comment": "Optional wrist rotation (theta4) - Range: -360 to +360 degrees"
+      }
+    ],
+    "_robot_info": {
+      "type": "SCARA",
+      "configuration": "RRPR",
+      "description": "Selective Compliance Assembly Robot Arm",
+      "working_envelope": {
+        "reach": "600mm",
+        "z_stroke": "300mm",
+        "repeatability": "±0.02mm"
+      },
+      "joint_types": [
+        "Revolute (J1)",
+        "Revolute (J2)",
+        "Prismatic (J3)",
+        "Revolute (J4)"
+      ],
+      "units": {
+        "position_revolute": "degrees",
+        "position_prismatic": "millimeters",
+        "torque": "Newton-meters",
+        "force": "Newtons",
+        "velocity_revolute": "degrees/second",
+        "velocity_prismatic": "millimeters/second"
+      }
+    }
+  }
+}

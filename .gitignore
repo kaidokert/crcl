@@ -91,3 +91,8 @@ tools/java/crcl4java/crcl4java-ui/setCrclUiEnvVars.sh
 /tools/java/crcl4java/copier-maven-plugin/target/
 /tools/java/crcl4java/crclcopier/target/
 /tools/java/crcl4java/generate-copier-maven-plugin/target/
+xsd_gen/target/
+xsd_gen/test_generated/target/
+target/
+.claude/
+Cargo.lock
