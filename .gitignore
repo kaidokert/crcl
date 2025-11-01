@@ -96,3 +96,12 @@ xsd_gen/test_generated/target/
 target/
 .claude/
 Cargo.lock
+crcl_python/__pycache__/
+
+# Python XSD generation
+crcl_python/__pycache__/
+.xsdata.xml
+
+# Test output
+test_messages/
+joint_statuses.json
