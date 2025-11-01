@@ -1,0 +1,16 @@
+# Requirements file for using CRCL Python types from GitHub
+#
+# Option 1: Install from specific branch (recommended for development)
+git+https://github.com/kaidokert/crcl.git@hack2#subdirectory=crcl_python
+
+# Option 2: If you tag it (e.g., v0.1.0), use:
+# git+https://github.com/kaidokert/crcl.git@v0.1.0#subdirectory=crcl_python
+
+# Option 3: Install with SSH (if you have SSH keys set up):
+# git+ssh://git@github.com/kaidokert/crcl.git@hack2#subdirectory=crcl_python
+
+# Option 4: Install in editable/development mode (for local development):
+# -e git+https://github.com/kaidokert/crcl.git@hack2#egg=crcl_python&subdirectory=crcl_python
+
+# Dependencies that crcl_python needs
+xsdata>=25.0

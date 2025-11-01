@@ -1,0 +1,37 @@
+# Example requirements.txt for using CRCL Python from GitHub
+
+# ============================================
+# Option 1: From specific branch (hack2)
+# ============================================
+git+https://github.com/kaidokert/crcl.git@hack2#subdirectory=crcl_python
+
+# ============================================
+# Option 2: From a tag (if you create one)
+# ============================================
+# First, create a tag:
+#   git tag v0.1.0
+#   git push origin v0.1.0
+# Then use:
+# git+https://github.com/kaidokert/crcl.git@v0.1.0#subdirectory=crcl_python
+
+# ============================================
+# Option 3: From latest commit hash (most stable)
+# ============================================
+# git+https://github.com/kaidokert/crcl.git@96ffc575#subdirectory=crcl_python
+
+# ============================================
+# Option 4: Editable install for development
+# ============================================
+# -e git+https://github.com/kaidokert/crcl.git@hack2#egg=crcl-python&subdirectory=crcl_python
+
+# ============================================
+# Usage in your Python code:
+# ============================================
+# from crcl_python.crclstatus import JointStatusType, JointStatusesType
+# from crcl_python.crclcommands import MoveToType, ActuateJointsType
+#
+# joint = JointStatusType(
+#     joint_number=1,
+#     joint_position=45.5,
+#     joint_velocity=10.0
+# )
