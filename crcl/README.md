@@ -15,11 +15,13 @@ CRCL is a standard XML-based protocol for robot control and status reporting. Th
 
 ## Installation
 
+### From GitHub (Recommended)
+
 Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-crcl = { path = "../crcl" }  # Or use version once published
+crcl = { git = "https://github.com/kaidokert/crcl.git", tag = "v0.0.1" }
 serde-xml-rs = "0.8"  # For XML support
 serde_json = "1.0"    # For JSON support
 ```
@@ -80,15 +82,16 @@ let joint: JointStatusType = serde_xml_rs::from_str(xml_input)?;
 
 ### Creating Commands
 
+#### Simple Position Command (No speed/accel details)
+
 ```rust
 use crcl::{ActuateJointType, ActuateJointsType};
-use crcl::commands::JointDetailsType;
 
 let actuate_joint = ActuateJointType {
     name: None,
     joint_number: 0,
     joint_position: 1.57,
-    joint_details: JointDetailsType { name: None },
+    joint_details: None,  // Simple position command
 };
 
 let command = ActuateJointsType {
@@ -98,6 +101,55 @@ let command = ActuateJointsType {
     actuate_joint: vec![actuate_joint],
     joint_tolerances: None,
 };
+```
+
+#### Command with Speed and Acceleration
+
+```rust
+use crcl::{ActuateJointType, ActuateJointsType, JointDetails, JointSpeedAccelType};
+
+let actuate_joint = ActuateJointType {
+    name: None,
+    joint_number: 0,
+    joint_position: 1.57,
+    joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+        name: None,
+        joint_speed: Some(1.5),  // rad/s
+        joint_accel: Some(0.5),  // rad/s²
+    })),
+};
+```
+
+#### Command with Force/Torque
+
+```rust
+use crcl::{ActuateJointType, JointDetails, JointForceTorqueType};
+
+let actuate_joint = ActuateJointType {
+    name: None,
+    joint_number: 1,
+    joint_position: 0.0,
+    joint_details: Some(JointDetails::ForceTorque(JointForceTorqueType {
+        name: None,
+        setting: Some(25.0),      // N or Nm
+        change_rate: Some(5.0),   // N/s or Nm/s
+    })),
+};
+```
+
+#### Pattern Matching on JointDetails
+
+```rust
+match actuate_joint.joint_details {
+    None => println!("Simple position command"),
+    Some(JointDetails::SpeedAccel(ref details)) => {
+        println!("Speed: {:?}, Accel: {:?}",
+            details.joint_speed, details.joint_accel);
+    }
+    Some(JointDetails::ForceTorque(ref details)) => {
+        println!("Force/Torque: {:?}", details.setting);
+    }
+}
 ```
 
 ## JSON Support
@@ -200,9 +252,10 @@ Output:
 
 ### JSON Serialization - ActuateJointsType
 
+#### With Speed/Accel Details
+
 ```rust
-use crcl::{ActuateJointType, ActuateJointsType};
-use crcl::commands::JointDetailsType;
+use crcl::{ActuateJointType, ActuateJointsType, JointDetails, JointSpeedAccelType};
 
 let command = ActuateJointsType {
     name: None,
@@ -213,13 +266,11 @@ let command = ActuateJointsType {
             name: None,
             joint_number: 0,
             joint_position: 1.57,
-            joint_details: JointDetailsType { name: None },
-        },
-        ActuateJointType {
-            name: None,
-            joint_number: 1,
-            joint_position: -0.785,
-            joint_details: JointDetailsType { name: None },
+            joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+                name: None,
+                joint_speed: Some(1.5),
+                joint_accel: Some(0.5),
+            })),
         },
     ],
     joint_tolerances: None,
@@ -240,16 +291,47 @@ Output:
       "joint_number": 0,
       "joint_position": 1.57,
       "joint_details": {
-        "name": null
+        "name": null,
+        "joint_speed": 1.5,
+        "joint_accel": 0.5
       }
-    },
+    }
+  ],
+  "joint_tolerances": null
+}
+```
+
+#### Without Details (None)
+
+```rust
+let command = ActuateJointsType {
+    name: None,
+    command_id: 123,
+    guard: Vec::new(),
+    actuate_joint: vec![
+        ActuateJointType {
+            name: None,
+            joint_number: 0,
+            joint_position: 1.57,
+            joint_details: None,  // Simple position command
+        },
+    ],
+    joint_tolerances: None,
+};
+```
+
+Output:
+```json
+{
+  "name": null,
+  "command_id": 123,
+  "guard": [],
+  "actuate_joint": [
     {
       "name": null,
-      "joint_number": 1,
-      "joint_position": -0.785,
-      "joint_details": {
-        "name": null
-      }
+      "joint_number": 0,
+      "joint_position": 1.57,
+      "joint_details": null
     }
   ],
   "joint_tolerances": null

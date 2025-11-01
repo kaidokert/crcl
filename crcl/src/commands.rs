@@ -1,11 +1,98 @@
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use serde::de::{self, MapAccess, Visitor};
+use std::fmt;
+
+/// JointDetails enum wraps the concrete JointDetails types.
+/// Use SpeedAccel for velocity/acceleration control, or ForceTorque for force control.
+#[derive(Debug)]
+pub enum JointDetails {
+    SpeedAccel(JointSpeedAccelType),
+    ForceTorque(JointForceTorqueType),
+}
+
+impl Serialize for JointDetails {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        match self {
+            JointDetails::SpeedAccel(v) => v.serialize(serializer),
+            JointDetails::ForceTorque(v) => v.serialize(serializer),
+        }
+    }
+}
+
+impl<'de> Deserialize<'de> for JointDetails {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        struct JointDetailsVisitor;
+
+        impl<'de> Visitor<'de> for JointDetailsVisitor {
+            type Value = JointDetails;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                formatter.write_str("JointSpeedAccelType or JointForceTorqueType")
+            }
+
+            fn visit_map<A>(self, mut map: A) -> Result<Self::Value, A::Error>
+            where
+                A: MapAccess<'de>,
+            {
+                let mut name = None;
+                let mut joint_speed = None;
+                let mut joint_accel = None;
+                let mut setting = None;
+                let mut change_rate = None;
+
+                while let Some(key) = map.next_key::<String>()? {
+                    match key.as_str() {
+                        "name" => name = map.next_value()?,
+                        "joint_speed" => joint_speed = Some(map.next_value()?),
+                        "joint_accel" => joint_accel = Some(map.next_value()?),
+                        "setting" => setting = Some(map.next_value()?),
+                        "change_rate" => change_rate = Some(map.next_value()?),
+                        _ => {
+                            let _: serde::de::IgnoredAny = map.next_value()?;
+                        }
+                    }
+                }
+
+                // Determine which variant based on which fields are present
+                if joint_speed.is_some() || joint_accel.is_some() {
+                    Ok(JointDetails::SpeedAccel(JointSpeedAccelType {
+                        name,
+                        joint_speed,
+                        joint_accel,
+                    }))
+                } else if setting.is_some() || change_rate.is_some() {
+                    Ok(JointDetails::ForceTorque(JointForceTorqueType {
+                        name,
+                        setting,
+                        change_rate,
+                    }))
+                } else {
+                    // Default to SpeedAccel if no specific fields present
+                    Ok(JointDetails::SpeedAccel(JointSpeedAccelType {
+                        name,
+                        joint_speed: None,
+                        joint_accel: None,
+                    }))
+                }
+            }
+        }
+
+        deserializer.deserialize_map(JointDetailsVisitor)
+    }
+}
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ActuateJointType {
     pub name: Option<IdType>,
     pub joint_number: IntType,
     pub joint_position: DoubleType,
-    pub joint_details: JointDetailsType,
+    pub joint_details: Option<JointDetails>,
 }
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ActuateJointsType {

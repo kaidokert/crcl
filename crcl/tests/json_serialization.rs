@@ -1,5 +1,4 @@
-use crcl::{JointStatusType, JointStatusesType, ActuateJointType, ActuateJointsType};
-use crcl::commands::JointDetailsType;
+use crcl::{JointStatusType, JointStatusesType, ActuateJointType, ActuateJointsType, JointDetails, JointSpeedAccelType};
 
 #[test]
 fn test_joint_status_to_json() {
@@ -117,14 +116,22 @@ fn test_actuate_joints_to_json() {
         name: None,
         joint_number: 0,
         joint_position: 1.57,
-        joint_details: JointDetailsType { name: None },
+        joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+            name: None,
+            joint_speed: Some(1.0),
+            joint_accel: Some(0.5),
+        })),
     };
 
     let actuate_joint1 = ActuateJointType {
         name: None,
         joint_number: 1,
         joint_position: -0.785,
-        joint_details: JointDetailsType { name: None },
+        joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+            name: None,
+            joint_speed: Some(2.0),
+            joint_accel: Some(1.0),
+        })),
     };
 
     let command = ActuateJointsType {
@@ -227,7 +234,11 @@ fn test_json_roundtrip_actuate_joints() {
                 name: None,
                 joint_number: 0,
                 joint_position: 1.57,
-                joint_details: JointDetailsType { name: None },
+                joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+                    name: None,
+                    joint_speed: Some(1.0),
+                    joint_accel: Some(0.5),
+                })),
             },
         ],
         joint_tolerances: None,

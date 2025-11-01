@@ -42,5 +42,5 @@ pub mod status {
 }
 
 // Re-export commonly used types at the crate root
-pub use commands::{ActuateJointType, ActuateJointsType};
+pub use commands::{ActuateJointType, ActuateJointsType, JointDetails, JointSpeedAccelType, JointForceTorqueType};
 pub use status::{JointStatusType, JointStatusesType};

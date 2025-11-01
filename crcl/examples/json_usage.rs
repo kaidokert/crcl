@@ -5,8 +5,7 @@
 //!
 //! Run with: cargo run --example json_usage
 
-use crcl::{ActuateJointType, ActuateJointsType, JointStatusType, JointStatusesType};
-use crcl::commands::JointDetailsType;
+use crcl::{ActuateJointType, ActuateJointsType, JointStatusType, JointStatusesType, JointDetails, JointSpeedAccelType};
 
 fn main() {
     println!("=== CRCL JSON Serialization Examples ===\n");
@@ -118,14 +117,22 @@ fn main() {
         name: None,
         joint_number: 0,
         joint_position: 1.57,
-        joint_details: JointDetailsType { name: None },
+        joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+            name: None,
+            joint_speed: Some(1.0),
+            joint_accel: Some(0.5),
+        })),
     };
 
     let actuate_joint1 = ActuateJointType {
         name: None,
         joint_number: 1,
         joint_position: -0.785,
-        joint_details: JointDetailsType { name: None },
+        joint_details: Some(JointDetails::SpeedAccel(JointSpeedAccelType {
+            name: None,
+            joint_speed: Some(2.0),
+            joint_accel: Some(1.0),
+        })),
     };
 
     let command = ActuateJointsType {
